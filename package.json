@@ -1,0 +1,28 @@
+{
+  "name": "@pedrosanta/personalpage",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Public repository of http://pedrosanta.com.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrosanta/personalpage.git"
+  },
+  "author": "Pedro Machado Santa <pedro.santa@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedrosanta/personalpage/issues"
+  },
+  "homepage": "http://pedrosanta.com",
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "grunt": "^1.0.4",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-connect": "^2.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-ftps-deploy": "github:dYb/grunt-ftps-deploy",
+    "grunt-ga-replace": "^1.0.2",
+    "grunt-sftp-deploy": "^0.2.5",
+    "html5-boilerplate": "^7.2.0"
+  }
+}
