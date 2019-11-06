@@ -1,3 +1,5 @@
-# pedrosanta/personalpage
+# @pedrosanta/personalpage
 
-Public repository of [pedrosanta.com](http://pedrosanta.com).
+Public repository for [pedrosanta.com](http://pedrosanta.com).
+
+Bootstrapped with [pedrosanta/html-base](https://github.com/pedrosanta/html-base).
