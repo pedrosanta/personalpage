@@ -1,4 +1,4 @@
-# @pedrosanta/personalpage
+# pedrosanta/personalpage
 
 Public repository for [pedrosanta.com](http://pedrosanta.com).
 
