@@ -1,35 +1,57 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
+  <title>Pedro Machado Santa</title>
+  <meta name="description" content="A digital crafter and creative coder.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
 
-  <meta name="theme-color" content="#fafafa">
+  <meta name="theme-color" content="#000000">
 </head>
 
 <body>
-  <!--[if IE]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+  <video src="assets/static.mp4"
+         poster="img/static-poster.jpg"
+         type="video/mp4"
+         autoplay
+         muted
+         loop>
+  </video>
 
-  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <div id="info">
+    <p><span class="highlight">Pedro Machado Santa</span></p>
+    <p><span class="highlight">Digital crafter and creative coder.</span></p>
+    <p><span class="highlight">Work on this site is ongoing. Currently partner at <a href="https://mariaadelaide.com">Maria Adelaide</a>. You can take a look at some of the latest work there.</span></p>
+    <p><span class="highlight"><a href="mailto:pedro.santa@gmail.com">Email</a> / <a href="https://github.com/pedrosanta">GitHub</a> / <a href="https://linkedin.com/in/pedrosanta">LinkedIn</a></span></p>
+  </div>
+
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    var infoEl = document.getElementById('info');
+    var videoEl = document.querySelector('video');
+
+    infoEl.addEventListener('mouseenter', function (event) {
+      videoEl.pause();
+    });
+
+    infoEl.addEventListener('mouseleave', function (event) {
+      videoEl.play();
+    });
+    </script>
+  </script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>

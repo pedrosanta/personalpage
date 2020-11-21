@@ -1,0 +1,58 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 1.35;
+}
+
+::-moz-selection {
+  background-color: rgba(255,255,255,0.99);
+  color: black;
+}
+::selection {
+  background-color: rgba(255,255,255,0.99);
+  color: black;
+}
+
+video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -2;
+}
+
+#info {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+}
+
+#info:hover {
+  background-color: black;
+}
+
+.highlight{
+  background-color: black;
+}
+
+p {
+  max-width: 920px
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
