@@ -8,26 +8,42 @@ module.exports = grunt => {
       dev: {
         expand: true,
         cwd: 'app/',
-        src: '**',
+        src: ['**', '!**/*.mustache'],
         dest: '.tmp/'
       },
       dist: {
         expand: true,
         cwd: 'app/',
-        src: '**',
+        src: ['**', '!**/*.mustache'],
         dest: 'dist/'
       }
     },
 
-    'ga-replace': {
-      options: {
-        propertyId: process.env.GA_TRACKING_ID
+    mustache_render: {
+      dev: {
+        options: {
+          data: {
+            dist: false
+          }
+        },
+        expand: true,
+        cwd: 'app/',
+        src: '**/*.mustache',
+        dest: '.tmp/',
+        ext: '.html'
       },
       dist: {
+        options: {
+          data: {
+            dist: true,
+            gtm_container_id: process.env.GTM_CONTAINER_ID
+          }
+        },
         expand: true,
-        cwd: 'dist/',
-        src: '**/*.html',
-        dest: 'dist/'
+        cwd: 'app/',
+        src: '**/*.mustache',
+        dest: 'dist/',
+        ext: '.html'
       }
     },
 
@@ -89,22 +105,40 @@ module.exports = grunt => {
   });
 
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-ga-replace');
+  grunt.loadNpmTasks('grunt-mustache-render');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-ftps-deploy');
   grunt.loadNpmTasks('grunt-sftp-deploy');
 
-  grunt.registerTask('build:dev', 'Build all the files needed for local/dev.', ['copy:dev']);
-  grunt.registerTask('build:dist', 'Build all the files needed for production.', ['copy:dist', 'ga-replace:dist']);
-  grunt.registerTask('build', 'Build all the files needed for local/dev and production.', ['build:dev', 'build:dist']);
+  grunt.registerTask('build:dev', 'Build all the files needed for local/dev.', [
+    'copy:dev',
+    'mustache_render:dev'
+  ]);
 
-  grunt.registerTask('dev', 'Development task for building files, launch a server and watch changes.', ['build:dev', 'connect:dev', 'watch']);
+  grunt.registerTask('build:dist', 'Build all the files needed for production.', [
+    'copy:dist',
+    'mustache_render:dist'
+  ]);
+
+  grunt.registerTask('build', 'Build all the files needed for local/dev and production.', [
+    'build:dev',
+    'build:dist'
+  ]);
+
+  grunt.registerTask('dev', 'Development task for building files, launch a server and watch changes.', [
+    'build:dev',
+    'connect:dev',
+    'watch'
+  ]);
 
   grunt.registerTask('server', 'Run the server.', ['connect:server:keepalive']);
 
-  grunt.registerTask('deploy', 'Deploy built code to the server.', ['build:dist', 'ftps_deploy']);
+  grunt.registerTask('deploy', 'Deploy built code to the server.', [
+    'build:dist',
+    'ftps_deploy'
+  ]);
 
   grunt.registerTask('default', ['build']);
 };

@@ -21,7 +21,7 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-ftps-deploy": "github:dYb/grunt-ftps-deploy",
-    "grunt-ga-replace": "^1.0.2",
+    "grunt-mustache-render": "^1.9.2",
     "grunt-sftp-deploy": "^0.2.5",
     "html5-boilerplate": "^8.0.0"
   }
