@@ -72,34 +72,18 @@ module.exports = grunt => {
 
     clean: ['.tmp', 'dist'],
 
-    ftps_deploy: {
-      server: {
+    rsync: {
+      options: {
+        args: ["--verbose"]
+      },
+      production: {
         options: {
-          auth: {
-            host: '0.0.0.0',
-            port: 3000,
-            authKey: 'key1',
-            secure: true
-          }
-        },
-        files: [{
-          expand: true,
-          cwd: 'dist',
-          src: '**/*',
-          dest: '/home/user/public_html'
-        }]
-      }
-    },
-
-    'sftp-deploy': {
-      server: {
-        auth: {
-          host: 'server.com',
-          port: 22,
-          authKey: 'key1'
-        },
-        src: 'dist',
-        dest: '/home/user/public_html',
+            src: "dist/",
+            dest: "~/pedrosanta.com",
+            host: "pedrosanta@pedrosanta.com",
+            delete: true,
+            recursive: true
+        }
       }
     }
   });
@@ -109,8 +93,7 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-ftps-deploy');
-  grunt.loadNpmTasks('grunt-sftp-deploy');
+  grunt.loadNpmTasks('grunt-rsync');
 
   grunt.registerTask('build:dev', 'Build all the files needed for local/dev.', [
     'copy:dev',
@@ -137,7 +120,7 @@ module.exports = grunt => {
 
   grunt.registerTask('deploy', 'Deploy built code to the server.', [
     'build:dist',
-    'ftps_deploy'
+    'rsync:production'
   ]);
 
   grunt.registerTask('default', ['build']);
