@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  {{#dist}}
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','{{gtm_container_id}}');</script>
+  <!-- End Google Tag Manager -->
+  {{/dist}}
+
+  <meta charset="utf-8">
+
+  <title>Pedro Machado Santa</title>
+  <meta name="title" content="Pedro Machado Santa">
+  <meta name="description" content="Digital crafter and creative coder.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://pedrosanta.com/">
+  <meta property="og:title" content="Pedro Machado Santa">
+  <meta property="og:description" content="Digital crafter and creative coder.">
+  <meta property="og:image" content="https://pedrosanta.com/img/social.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://pedrosanta.com/">
+  <meta property="twitter:title" content="Pedro Machado Santa">
+  <meta property="twitter:description" content="Digital crafter and creative coder.">
+  <meta property="twitter:image" content="https://pedrosanta.com/img/social.jpg">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta name="theme-color" content="#000000">
+</head>
+
+<body>
+  {{#dist}}
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{gtm_container_id}}"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  {{/dist}}
+
+  <video src="assets/static.mp4"
+         poster="img/static-poster.jpg"
+         type="video/mp4"
+         autoplay
+         muted
+         loop>
+  </video>
+
+  <div id="info">
+    <p><span class="highlight">Pedro Machado Santa</span></p>
+    <p><span class="highlight">Digital crafter and creative coder.</span></p>
+    <p><span class="highlight">Work on this site is ongoing. Currently partner at <a href="https://mariaadelaide.com">Maria Adelaide</a>. You can take a look at some of the latest work there.</span></p>
+    <p><span class="highlight"><a href="mailto:pedro.santa@gmail.com">Email</a> / <a href="https://github.com/pedrosanta">GitHub</a> / <a href="https://linkedin.com/in/pedrosanta">LinkedIn</a></span></p>
+  </div>
+
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    var infoEl = document.getElementById('info');
+    var videoEl = document.querySelector('video');
+
+    infoEl.addEventListener('mouseenter', function (event) {
+      videoEl.pause();
+    });
+
+    infoEl.addEventListener('mouseleave', function (event) {
+      videoEl.play();
+    });
+    </script>
+  </script>
+</body>
+
+</html>
